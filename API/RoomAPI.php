@@ -39,6 +39,7 @@ class RoomAPI
         foreach ($response['items'] as $response) {
             $rooms[] = new Room($response);
         }
+
         return $rooms;
     }
 
@@ -74,6 +75,7 @@ class RoomAPI
         foreach ($response['items'] as $response) {
             $messages[] = new Message($response);
         }
+
         return $messages;
     }
 
@@ -237,5 +239,27 @@ class RoomAPI
         }
 
         return $webhooks;
+    }
+
+    /**
+     *
+     * Gets all participants for this room
+     * More info: https://www.hipchat.com/docs/apiv2/method/get_all_participants
+     *
+     * @param $roomId
+     * @param array $params
+     * @return array
+     * @throws \GorkaLaucirica\HipchatAPIv2Client\Exception\RequestException
+     */
+    public function getAllParticipants($roomId, $params = array())
+    {
+        $response = $this->client->get(sprintf('/v2/room/%s/participant', $roomId), $params);
+
+        $participants = array();
+        foreach ($response['items'] as $participant) {
+            $participants[] = new User($participant);
+        }
+
+        return $participants;
     }
 }
