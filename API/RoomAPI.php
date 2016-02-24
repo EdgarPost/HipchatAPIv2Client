@@ -5,6 +5,7 @@ namespace GorkaLaucirica\HipchatAPIv2Client\API;
 use GorkaLaucirica\HipchatAPIv2Client\Client;
 use GorkaLaucirica\HipchatAPIv2Client\Model\Message;
 use GorkaLaucirica\HipchatAPIv2Client\Model\Room;
+use GorkaLaucirica\HipchatAPIv2Client\Model\User;
 use GorkaLaucirica\HipchatAPIv2Client\Model\Webhook;
 
 
